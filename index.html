@@ -1,0 +1,225 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="verticle-menu" data-magellan data-offset="-30" data-active-class="is-active">
+        <ul>
+          <li><a href="#home-card">Home</a></li>
+          <li><a href="#portfolio-card">Portfolio</a></li>
+          <li><a href="#experience-card">Experience</a></li>
+        </ul>
+      </div>
+
+      <div id="home-card" data-magellan-target="home-card" class="card-container">
+        <div class="grid-container">
+          <div class="grid-x">
+            <div class="cell sub-card-container" data-smooth-scroll>
+              <img id="profile-picture" src="assets/profilepicture.png" alt="Profile Picture">
+              <h1>Jack Kelly</h1>
+              <h2><i class="fa fa-code"></i> Software Developer Technician Apprentice</h2>
+
+              <a class="button" id="portfolio" href="#portfolio-card">Portfolio <i class="fas fa-arrow-right"></i></a>
+              
+              <div class="grid-x">
+                <div class="icon-container cell small-2 small-offset-2">
+                  <a href="https://twitter.com/JackKellyUK" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="icon-container cell small-2">
+                  <a href="mailto: mail@jackkelly.dev" target="_blank" aria-label="Mail"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="icon-container cell small-2">
+                  <a href="https://www.linkedin.com/in/jack-kelly-959224170/" target="_blank" aria-label="Linked In"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="icon-container cell small-2">
+                  <a href="https://github.com/JackKellyUK" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="portfolio-card" data-magellan-target="portfolio-card" class="card-container-2">
+        <div class="grid-container">
+          <h1>Portfolio</h1>
+
+          <div class="sub-card-container-2">
+            <div class="grid-x grid-margin-x">
+              
+              <div class="cell medium-4 text-container">
+                <div class="card">
+                  <div class="card-divider">
+                    <h2><i class="fas fa-calculator"></i> Calculator</h2>
+                  </div>
+                  <img id="calculator" src="assets/calculator.png" alt="Calculator">
+                  <img id="calculator-2" src="assets/calculator-2.png" alt="Calculator (2)">
+                  <div class="card-section">
+                    <p>My first ever JavaScript project was a simple calculator</p>
+                    <div class="icon-container">
+                      <i class="fab fa-html5"></i>
+                      <i class="fab fa-css3-alt"></i>
+                      <i class="fab fa-js"></i>
+                    </div>
+                    <a class="button">View this project</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cell medium-4 text-container">
+                <div class="card">
+                  <div class="card-divider">
+                    <h2><i class="fas fa-gamepad"></i> Game Development</h2>
+                  </div>
+                  <iframe width="100%" height="150" src="https://www.youtube.com/embed/LZOkQ77An8M" frameborder="0"></iframe>
+                  <div class="card-section">
+                    <p>Game Development within <a id="arma" href="https://en.wikipedia.org/wiki/ARMA_3" target="_blank">Arma 3 </a>using <a id="sqf" href="https://community.bistudio.com/wiki/SQF_syntax">SQF</a> and SQL</p>
+                    <div class="icon-container">
+                      <i class="fas fa-file-code"></i>
+                      <i class="fas fa-database"></i>
+                    </div>
+                    <a class="button" href="https://youtu.be/LZOkQ77An8M" target="_blank">View full video</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cell medium-4 text-container">
+                <div class="card">
+                  <div class="card-divider">
+                    <h2><i class="fas fa-database"></i> Movie Database</h2>
+                  </div>
+                  <iframe width="100%" height="230" src="https://www.youtube.com/embed/LZOkQ77An8M" frameborder="0"></iframe>
+                  <div class="card-section">
+                    <p>Game Development within <a id="arma" href="https://en.wikipedia.org/wiki/ARMA_3" target="_blank">Arma 3 </a>using <a id="sqf" href="https://community.bistudio.com/wiki/SQF_syntax">SQF</a> and SQL</p>
+                    <div class="icon-container">
+                      <i class="fas fa-file-code"></i>
+                      <i class="fas fa-database"></i>
+                    </div>
+                    <a class="button" href="https://youtu.be/LZOkQ77An8M" target="_blank">View full video</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="experience-card" data-magellan-target="experience-card" class="card-container-3">
+      <div class="grid-container">
+        <h1>Experience</h1>
+
+        <div class="sub-card-container-3">
+          <div class="grid-x grid-margin-x">
+            <div class="cell medium-7 sdt-container">
+              <div>
+                <img src="assets/qlue.png" alt="Qlue Logo">
+                <h2>Software Development Technician Apprentice</h2>
+                <h3><i class="fas fa-calendar-week"></i> August 2020 - Present</h3>
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">Reveal</a>
+                    <div class="accordion-content" data-tab-content>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tincidunt mauris. Sed nec est non metus laoreet lobortis vel id mi. Vestibulum luctus pulvinar ipsum. Vivamus suscipit vitae massa a pretium.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <img src="assets/waitrose.png" alt="Waitrose Logo">
+                <h2>Customer Service Assistant</h2>
+                <h3><i class="fas fa-calendar-week"></i> March 2019 - Present</h3>
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+                  <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title">Reveal</a>
+                    <div class="accordion-content" data-tab-content>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tincidunt mauris. Sed nec est non metus laoreet lobortis vel id mi. Vestibulum luctus pulvinar ipsum. Vivamus suscipit vitae massa a pretium.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cell medium-5 progress-container">
+              <h2>Code Management</h2>
+              <div class="text-container">
+                <i class="fab fa-github"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:80%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-bitbucket"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:65%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-trello"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:90%;"></div>
+                </div>
+              </div>
+
+              <h2>Languages</h2>
+              <div class="text-container">
+                <i class="fab fa-html5"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:75%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-css3-alt"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:65%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-sass"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:60%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-python"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:45%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-php"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:10%;"></div>
+                </div>
+              </div>
+
+              <div class="text-container">
+                <i class="fab fa-js"></i>
+                <div class="dark progress">
+                  <div class="dark progress-meter" style="width:5%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/what-input/dist/what-input.js"></script>
+    <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
