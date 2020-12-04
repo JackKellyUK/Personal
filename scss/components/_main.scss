@@ -163,7 +163,17 @@ ul {
 
         .text-container {
             text-align: center;
+            display: flex;
+        }
+
+        .image-container {
             position: relative;
+            padding: 0.75rem 0.5rem 0;
+        }
+
+        .card {
+            position: relative;
+            padding-bottom: 2.5rem;
         }
 
         .card-divider {
@@ -200,8 +210,13 @@ ul {
             margin: 0rem;
         }
 
-        a {
-            margin: 0.5rem 0;
+        .button {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            border-radius: 0;
+            background: map-get($foundation-palette, "dark");
         }
     }
 }
