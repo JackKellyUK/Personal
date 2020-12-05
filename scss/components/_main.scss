@@ -178,6 +178,16 @@ ul {
 
         .card-divider {
             background: $linear-gradient;
+            display: block;
+            text-align: center;
+        }
+
+        .card-section {
+            display: grid;
+        }
+
+        .bottom-section {
+            align-self: end;
         }
 
         .icon-container i {
@@ -208,12 +218,15 @@ ul {
 
         p {
             margin: 0rem;
+            text-align: left;
+            margin-bottom: 1rem;
         }
 
         .button {
             bottom: 0;
             left: 0;
             width: 100%;
+            margin: 0;
             position: absolute;
             border-radius: 0;
             background: map-get($foundation-palette, "dark");
