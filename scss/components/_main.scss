@@ -177,14 +177,18 @@ body {
             border-radius: 0.25rem;
             border-image: $global-gradient;
             border-image-slice: 1;
+            margin-right: 0.5rem;
+            transition: transform .2s ease-in-out;
 
             &:hover {
-                
+                transform: scale(1.1);
             }
         }
 
         .gradient-button {
-            margin-right: 0.5rem;
+            &:first-child {
+                margin-right: 0.5rem;
+            }
 
             i {
                 font-size: 1.5rem;
