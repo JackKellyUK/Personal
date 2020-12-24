@@ -1,5 +1,4 @@
 $global-gradient: linear-gradient(60deg, #fc5c7d, #6a82fb);
-$-webkit-global-gradient: -webkit-linear-gradient(60deg, #fc5c7d, #6a82fb);
 
 ul {
     margin-bottom: 0;
@@ -179,9 +178,7 @@ body {
         .button {
             background: none;
             border: 2px solid transparent;
-            border-radius: 0.25rem;
             border-image: $global-gradient;
-            -webkit-border-image: $-webkit-global-gradient;
             border-image-slice: 1;
             margin-right: 0.5rem;
             transition: transform .2s ease-in-out;
