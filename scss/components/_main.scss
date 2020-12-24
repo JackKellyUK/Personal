@@ -177,7 +177,8 @@ body {
 
         .button {
             background: none;
-            border: 2px solid transparent;
+            border-radius: 0;
+            border: 2px solid #fc5c7d;
             border-image: $global-gradient;
             border-image-slice: 1;
             margin-right: 0.5rem;
