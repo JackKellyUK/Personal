@@ -150,11 +150,11 @@ $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
     'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h2': ('font-size': 15),
+    'h3': ('font-size': 15),
+    'h4': ('font-size': 15),
+    'h5': ('font-size': 15),
+    'h6': ('font-size': 15),
   ),
   medium: (
     'h1': ('font-size': 30),
@@ -167,10 +167,10 @@ $header-styles: (
   large: (
     'h1': ('font-size': 32),
     'h2': ('font-size': 18),
-    'h3': ('font-size': 16),
+    'h3': ('font-size': 14),
     'h4': ('font-size': 14),
-    'h5': ('font-size': 16),
-    'h6': ('font-size': 16),
+    'h5': ('font-size': 14),
+    'h6': ('font-size': 14),
   ),
 );
 $header-text-rendering: optimizeLegibility;
