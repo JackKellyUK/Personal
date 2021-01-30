@@ -116,7 +116,7 @@ blackjack.prototype.render = function (allCards) {
 
     for (var i = 0; i < this.playerCards.length; i++) {
         var img = document.createElement('img'); 
-        img.src = "/src/" + this.playerCards[i] + ".png";
+        img.src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
         document.getElementById('blackjack-player').appendChild(img);
     }
 }
