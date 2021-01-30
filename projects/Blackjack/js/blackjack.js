@@ -170,8 +170,8 @@ blackjack.prototype.reset = function () {
     console.log(dealerParent);
 
     for (var i = 0; i < 7; i++) {
-        dealerParent[i].src = "/projects/blackjack/src/blank.png";
-        playerParent[i].src = "/projects/blackjack/src/blank.png";
+        dealerParent[i].src = "/src/blank.png";
+        playerParent[i].src = "/src/blank.png";
     }
 
     this.startGame();
