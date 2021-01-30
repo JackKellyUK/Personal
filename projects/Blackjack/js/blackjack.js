@@ -107,9 +107,9 @@ blackjack.prototype.render = function (allCards) {
         var img = document.createElement('img');
 
         if (i == 0 && !allCards) {
-            img.src = "/projects/blackjack/src/gray_back.png";
+            img.src = "projects/blackjack/src/gray_back.png";
         } else {
-            img.src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
+            img.src = "projects/blackjack/src/" + this.dealerCards[i] + ".png";
         }
         document.getElementById('blackjack-dealer').appendChild(img);
     }
