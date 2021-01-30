@@ -1,8 +1,7 @@
-function blackjack (hitButton, standButton, resetButton, resultNot) {
+function blackjack (hitButton, standButton, resetButton) {
     this.hitButton = document.getElementById(hitButton);
     this.standButton = document.getElementById(standButton);
     this.resetButton = document.getElementById(resetButton);
-    this.resultNot = document.getElementById(resultNot);
 
     this._init();
 }
@@ -101,20 +100,24 @@ blackjack.prototype.calcTotal = function (array) {
 }
 
 blackjack.prototype.render = function (allCards) {
-    var dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
-    var playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
+    document.getElementById('blackjack-dealer').innerHTML = '';
+    document.getElementById('blackjack-player').innerHTML = '';
 
     for (var i = 0; i < this.dealerCards.length; i++) {
+        var img = document.createElement('img');
 
         if (i == 0 && !allCards) {
-            dealerParent[i].src = "/src/gray_back.png";
+            img.src = "/projects/blackjack/src/gray_back.png";
         } else {
-            dealerParent[i].src = "/src/" + this.dealerCards[i] + ".png";
+            img.src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
         }
+        document.getElementById('blackjack-dealer').appendChild(img);
     }
 
     for (var i = 0; i < this.playerCards.length; i++) {
-        playerParent[i].src = "/src/" + this.playerCards[i] + ".png";
+        var img = document.createElement('img'); 
+        img.src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
+        document.getElementById('blackjack-player').appendChild(img);
     }
 }
 
@@ -134,7 +137,7 @@ blackjack.prototype.endGame = function () {
     var playerTotal = this.calcTotal(this.playerCards);
     var dealerTotal = this.calcTotal(this.dealerCards);
 
-    while (dealerTotal < 17 && !(dealerTotal > 21)) {
+    while (dealerTotal < 17 && !(dealerTotal > 21) && playerTotal < 21) {
         this.addCard(this.dealerCards);
         dealerTotal = this.calcTotal(this.dealerCards);
     }
@@ -142,39 +145,27 @@ blackjack.prototype.endGame = function () {
     this.render(true);
 
     if (dealerTotal == playerTotal || (playerTotal > 21 && dealerTotal > 21)) {
-        this.resultNot.innerHTML = '<i class="fas fa-bell"></i> You drew';
+        document.getElementById('blackjack-result').innerHTML = '<i class="fas fa-bell"></i> You drew';
         
     } else {
         if ((dealerTotal > 21 && playerTotal <= 21) || (playerTotal <= 21 && playerTotal > dealerTotal) || (playerTotal == 21 && dealerTotal != 21)) {
-            this.resultNot.innerHTML = '<i class="fas fa-trophy"></i> You won!';
-            this.resultNot.classList.add("win");
+            document.getElementById('blackjack-result').innerHTML = '<i class="fas fa-trophy"></i> You won!';
+            document.getElementById('blackjack-result').classList.add("win");
         } else {
-            this.resultNot.innerHTML = '<i class="fas fa-times"></i> You lost';
-            this.resultNot.classList.add("lose");
+            document.getElementById('blackjack-result').innerHTML = '<i class="fas fa-times"></i> You lost';
+            document.getElementById('blackjack-result').classList.add("lose");
         }
     }
 
-    this.resultNot.classList.add("active");
+    document.getElementById('blackjack-result').classList.add("active");
 }
 
 blackjack.prototype.reset = function () {
     this.hitButton.disabled = false;
     this.standButton.disabled = false;
-
-    this.resultNot.classList = "";
-    this.resultNot.innerHTML = 'Blank';
-
-    var dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
-    var playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
-
-    console.log(dealerParent);
-
-    for (var i = 0; i < 7; i++) {
-        dealerParent[i].src = "/src/blank.png";
-        playerParent[i].src = "/src/blank.png";
-    }
-
+    document.getElementById('blackjack-result').innerHTML = 'Blank';
+    document.getElementById('blackjack-result').classList = "";
     this.startGame();
 }
 
-new blackjack('hitButton', 'standButton', 'resetButton', 'blackjack-result');
+new blackjack('hitButton', 'standButton', 'resetButton');
