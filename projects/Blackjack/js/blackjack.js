@@ -107,15 +107,19 @@ blackjack.prototype.render = function (allCards) {
 
     for (var i = 0; i < this.dealerCards.length; i++) {
 
-        if (i == 0 && !allCards) {
-            this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
-        } else {
-            this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
+        if(this.dealerParent[i].src == "/projects/blackjack/src/blank.png") {
+            if (i == 0 && !allCards) {
+                this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
+            } else {
+                this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
+            }
         }
     }
 
     for (var i = 0; i < this.playerCards.length; i++) {
-        this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
+        if(this.playerParent[i].src == "/projects/blackjack/src/blank.png") {
+            this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
+        }
     }
 }
 
