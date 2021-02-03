@@ -107,22 +107,16 @@ blackjack.prototype.render = function (allCards) {
 
     for (var i = 0; i < this.dealerCards.length; i++) {
 
-        if(this.dealerParent[i].dataset.value) {
-            if (i == 0 && !allCards) {
-                this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
-            } else {
-                this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
-            }
-
-            this.dealerParent[i].dataset.value = 1;
+        console.log(this.dealerParent[i].src);
+        if (i == 0 && !allCards) {
+            this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
+        } else {
+            this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
         }
     }
 
     for (var i = 0; i < this.playerCards.length; i++) {
-        if(this.playerParent[i].dataset.value) {
-            this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
-            this.playerParent[i].dataset.value = 1;
-        }
+        this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
     }
 }
 
@@ -174,10 +168,7 @@ blackjack.prototype.reset = function () {
 
     for (var i = 0; i < 7; i++) {
         this.dealerParent[i].src = "/projects/blackjack/src/blank.png";
-        this.dealerParent[i].dataset.value = 0;
-
         this.playerParent[i].src = "/projects/blackjack/src/blank.png";
-        this.playerParent[i].dataset.value = 0;
     }
 
     this.startGame();
