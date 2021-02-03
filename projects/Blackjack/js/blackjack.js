@@ -174,7 +174,10 @@ blackjack.prototype.reset = function () {
 
     for (var i = 0; i < 7; i++) {
         this.dealerParent[i].src = "/projects/blackjack/src/blank.png";
+        this.dealerParent[i].dataset.value = 0;
+
         this.playerParent[i].src = "/projects/blackjack/src/blank.png";
+        this.playerParent[i].dataset.value = 0;
     }
 
     this.startGame();
