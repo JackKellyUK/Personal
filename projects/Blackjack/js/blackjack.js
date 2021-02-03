@@ -4,6 +4,9 @@ function blackjack (hitButton, standButton, resetButton, resultNot) {
     this.resetButton = document.getElementById(resetButton);
     this.resultNot = document.getElementById(resultNot);
 
+    this.dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
+    this.playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
+
     this._init();
 }
 
@@ -101,20 +104,18 @@ blackjack.prototype.calcTotal = function (array) {
 }
 
 blackjack.prototype.render = function (allCards) {
-    var dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
-    var playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
 
     for (var i = 0; i < this.dealerCards.length; i++) {
 
         if (i == 0 && !allCards) {
-            dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
+            this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
         } else {
-            dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
+            this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
         }
     }
 
     for (var i = 0; i < this.playerCards.length; i++) {
-        playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
+        this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
     }
 }
 
@@ -164,14 +165,9 @@ blackjack.prototype.reset = function () {
     this.resultNot.classList = "";
     this.resultNot.innerHTML = 'Blank';
 
-    var dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
-    var playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
-
-    console.log(dealerParent);
-
     for (var i = 0; i < 7; i++) {
-        dealerParent[i].src = "/projects/blackjack/src/blank.png";
-        playerParent[i].src = "/projects/blackjack/src/blank.png";
+        this.dealerParent[i].src = "/projects/blackjack/src/blank.png";
+        this.playerParent[i].src = "/projects/blackjack/src/blank.png";
     }
 
     this.startGame();
