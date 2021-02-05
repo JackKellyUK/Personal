@@ -150,6 +150,7 @@ blackjack.prototype.endGame = function () {
 
     while (dealerTotal < 17 && !(dealerTotal > 21)) {
         this.addCard(this.dealerCards);
+        this.render('dealer');
         dealerTotal = this.calcTotal(this.dealerCards);
     }
 
