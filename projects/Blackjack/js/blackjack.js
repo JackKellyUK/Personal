@@ -4,8 +4,8 @@ function blackjack (hitButton, standButton, resetButton, resultNot) {
     this.resetButton = document.getElementById(resetButton);
     this.resultNot = document.getElementById(resultNot);
 
-    this.dealerParent = document.getElementById("blackjack-dealer").getElementsByTagName('img');
-    this.playerParent = document.getElementById("blackjack-player").getElementsByTagName('img');
+    this.dealerParent = document.getElementById("blackjack-dealer");
+    this.playerParent = document.getElementById("blackjack-player");
 
     this._init();
 }
@@ -30,13 +30,15 @@ blackjack.prototype.startGame = function () {
 
     //Add 2 players cards
     this.addCard(this.playerCards);
+    this.render('player');
     this.addCard(this.playerCards);
+    this.render('player');
 
     //Add 2 dealer cards
     this.addCard(this.dealerCards);
+    this.render('dealer');
     this.addCard(this.dealerCards);
-
-    this.render(false);
+    this.render('dealer');
 
     if (this.calcTotal(this.playerCards) >= 21) {
         this.endGame();
@@ -103,26 +105,36 @@ blackjack.prototype.calcTotal = function (array) {
     return total;
 }
 
-blackjack.prototype.render = function (allCards) {
+blackjack.prototype.render = function (type) {
 
-    for (var i = 0; i < this.dealerCards.length; i++) {
+    switch (type) {
+        case 'end':
+            this.dealerParent.firstChild.src = ('/src/' + this.dealerCards[0] + '.png');
+            break;
 
-        console.log(this.dealerParent[i].src);
-        if (i == 0 && !allCards) {
-            this.dealerParent[i].src = "/projects/blackjack/src/gray_back.png";
-        } else {
-            this.dealerParent[i].src = "/projects/blackjack/src/" + this.dealerCards[i] + ".png";
-        }
-    }
+        case 'player':
+            var img = $('<img>');
+            img.attr('src', ('/src/' + this.playerCards[this.playerCards.length - 1] + '.png'));
+            img.appendTo(this.playerParent);
+            break;
+        
+        case 'dealer':
+            var img = $('<img>');
 
-    for (var i = 0; i < this.playerCards.length; i++) {
-        this.playerParent[i].src = "/projects/blackjack/src/" + this.playerCards[i] + ".png";
+            if (this.dealerCards.length == 1) {
+                img.attr('src', '/src/gray_back.png');
+            } else {
+                img.attr('src', ('/src/' + this.dealerCards[this.dealerCards.length - 1] + '.png'));
+            }
+    
+            img.appendTo(this.dealerParent);
+            break;
     }
 }
 
 blackjack.prototype.hit = function () {
     this.addCard(this.playerCards);
-    this.render(false);
+    this.render('player');
 
     if (this.calcTotal(this.playerCards) >= 21) {
         this.endGame();
@@ -141,7 +153,7 @@ blackjack.prototype.endGame = function () {
         dealerTotal = this.calcTotal(this.dealerCards);
     }
 
-    this.render(true);
+    this.render('end');
 
     if (dealerTotal == playerTotal || (playerTotal > 21 && dealerTotal > 21)) {
         this.resultNot.innerHTML = '<i class="fas fa-bell"></i> You drew';
@@ -163,13 +175,11 @@ blackjack.prototype.reset = function () {
     this.hitButton.disabled = false;
     this.standButton.disabled = false;
 
-    this.resultNot.classList = "";
+    this.resultNot.classList = '';
     this.resultNot.innerHTML = 'Blank';
 
-    for (var i = 0; i < 7; i++) {
-        this.dealerParent[i].src = "/projects/blackjack/src/blank.png";
-        this.playerParent[i].src = "/projects/blackjack/src/blank.png";
-    }
+    this.dealerParent.innerHTML = '';
+    this.playerParent.innerHTML = '';
 
     this.startGame();
 }
