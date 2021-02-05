@@ -109,12 +109,12 @@ blackjack.prototype.render = function (type) {
 
     switch (type) {
         case 'end':
-            this.dealerParent.firstChild.src = ('/src/' + this.dealerCards[0] + '.png');
+            this.dealerParent.firstChild.src = ('/projects/blackjack/src/' + this.dealerCards[0] + '.png');
             break;
 
         case 'player':
             var img = $('<img>');
-            img.attr('src', ('/src/' + this.playerCards[this.playerCards.length - 1] + '.png'));
+            img.attr('src', ('/projects/blackjack/src/' + this.playerCards[this.playerCards.length - 1] + '.png'));
             img.appendTo(this.playerParent);
             break;
         
@@ -122,9 +122,9 @@ blackjack.prototype.render = function (type) {
             var img = $('<img>');
 
             if (this.dealerCards.length == 1) {
-                img.attr('src', '/src/gray_back.png');
+                img.attr('src', '/projects/blackjack/src/gray_back.png');
             } else {
-                img.attr('src', ('/src/' + this.dealerCards[this.dealerCards.length - 1] + '.png'));
+                img.attr('src', ('/projects/blackjack/src/' + this.dealerCards[this.dealerCards.length - 1] + '.png'));
             }
     
             img.appendTo(this.dealerParent);
