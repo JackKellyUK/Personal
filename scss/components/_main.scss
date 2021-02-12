@@ -107,16 +107,10 @@ body {
     .sub-card-container {
         background-color: map-get($foundation-palette, "secondary");
         text-align: center;
-        padding: 3rem 0;
-
-        .grid-x {
-            padding: 0 15%;
-            text-align: center;
-            max-height: 3rem;
-        }
+        padding: 3rem 1rem;
 
         #profile-picture {
-            max-width: 20%;
+            max-width: 6rem;
             border-radius: 50%;
             top: 0;
             bottom: 0;
@@ -134,17 +128,30 @@ body {
         }
 
         .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-height: 3rem;
+
             a {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                padding: 0.5rem 0;
+                padding: 0.5rem 1rem;
 
                 i {
                     font-size: 2rem;
                 }
+            }
+        }
+
+    }
+
+    @include breakpoint(medium) {
+        .sub-card-container {
+            #profile-picture {
+                max-width: 10rem;
+            }
+
+            .icon-container a {
+                padding: 0.5rem 2.5rem;
             }
         }
     }
@@ -173,6 +180,10 @@ body {
 
         .image-container {
             margin-bottom: 0.5rem;
+
+            img {
+                border-radius: 0.25rem
+            }
         }
 
         .button {
