@@ -1,147 +1,140 @@
-$global-gradient: linear-gradient(60deg, #fc5c7d, #6a82fb);
-
 ul {
     margin-bottom: 0;
 }
 
 body {
-    background: $global-gradient;
+    background: $primary-color;
 }
 
-.gradient-button {
-    transition: border .15s ease-in-out;
+.icon-button {
+    transition: border .15s ease-in;
 
-    i {
-        background: $global-gradient;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    &.hover:hover {
-        border-bottom: 5px solid transparent;
-        border-image: $global-gradient;
-        border-image-slice: 1;
+    &:hover {
+        border-bottom: 4px solid rgba(255, 255, 255, 0.8);
     }
 }
 
-.main-container .card-container,
-.main-container .card-container-2,
-.main-container .card-container-3 {
-
-    .grid-container {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-
-        .sub-card {
-            border-radius: 0.25rem;
-            background: linear-gradient(25deg, #1e253b 30%, #495680);
-        }
-    }
-
-    @include breakpoint(medium) {
-        height: 100vh;
-    }
-}
-
-.accordion-item.is-active .accordion-title {
-    border-bottom: 1px solid map-get($foundation-palette, "dark-grey");
-    
-    &::after {
-        transform: rotate(180deg);
-    }
-}
-
-.accordion-title {
-    text-transform: uppercase;
-    margin-top: 1rem;
-
-    &::after {
-        content: "\f078";
-        font-family: 'Font Awesome 5 Pro';
-        float: right;
-        transition: transform .25s ease-in-out;
-    }
-}
-
-.accordion-content p {
-    margin-bottom: 0;
-    font-size: 0.9rem;
-}
-
-.verticle-menu {
-    display: none;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-
-    ul {
-        padding-left: 0.5rem;
-        border-left: 0.5px solid $white;
-
-        li {
-            list-style-type: none;
-            line-height: 1.5;
-            
-            a {
-                color: $light-gray;
-                text-transform: uppercase;
-                font-size: 0.8rem;
-                transition: color .2s ease-in-out;
-
-                &.is-active, &:hover {
-                    color: $medium-gray;
-                }
-            }
-        }
-    }
+.main-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 
     @include breakpoint(large) {
-        display: block;
+        
     }
 }
 
-.card-container {
-    height: 100vh;
-    
-    .sub-card-container {
-        background-color: map-get($foundation-palette, "secondary");
-        text-align: center;
-        padding: 3rem 1rem;
+.main-container {
+    width: 100%;
 
-        #profile-picture {
-            max-width: 6rem;
-            border-radius: 50%;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin-bottom: 1rem;
+    .tabs-content {
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 3px;
+
+        @include breakpoint(small only) {
+            margin: 3rem 0;
         }
+    }
+}
 
-        i {
-            color: $white;
-        }
+#mobile-menu-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: $white;
+    @include hide-for(xlarge);
+}
 
-        h2 {
-            margin-bottom: 1.5rem;
-        }
+.close-button {
+    top: 1rem;
+}
 
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            max-height: 3rem;
+.menu.mobile-menu {
+    padding: 1rem;
 
-            a {
-                padding: 0.5rem 1rem;
+    li {
+        margin-bottom: 0.25rem;
+    }
 
-                i {
-                    font-size: 2rem;
-                }
+    a {
+        font-size: 1rem;
+        display: inline-block;
+    }
+}
+
+.tabs {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+    padding-left: 0.5rem;
+    border-left: 0.5px solid #fefefe;
+    @include show-for(xlarge);
+}
+
+.tabs-title a {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.45rem 0;
+}
+
+.tabs-panel {
+    opacity: 0;
+}
+
+.tabs-panel.is-active {
+    animation: fade-in 1.5s;
+    opacity: 1;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#home {
+    text-align: center;
+    padding: 3rem 1rem;
+
+    #profile-picture {
+        max-width: 11rem;
+        border-radius: 50%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 1rem;
+    }
+
+    i {
+        color: $white;
+    }
+
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        max-height: 3rem;
+
+        a {
+            padding: 0.5rem 1rem;
+
+            i {
+                font-size: 2rem;
             }
         }
-
     }
 
     @include breakpoint(medium) {
@@ -149,7 +142,7 @@ body {
             #profile-picture {
                 max-width: 10rem;
             }
-
+    
             .icon-container a {
                 padding: 0.5rem 2.5rem;
             }
@@ -157,102 +150,91 @@ body {
     }
 }
 
-.card-container-2 {
-    height: 250vh;
+#projects {
+    padding: 1.5rem;
 
-    .sub-card-container-2 {
-        background-color: map-get($foundation-palette, "secondary");
-        padding: 1.5rem;
+    p {
+        margin: 0rem;
+        text-align: left;
+        margin-bottom: 1rem;
 
-        p {
-            margin: 0rem;
-            text-align: left;
-            margin-bottom: 1rem;
-
-            a {
-                font-weight: bold;
-            }
+        a {
+            font-weight: bold;
         }
+    }
 
-        .section-container:not(:last-child) {
-            margin-bottom: 1rem;
+    .section-container:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    .image-container {
+        margin-bottom: 0.5rem;
+
+        img {
+            border-radius: 0.25rem
         }
+    }
 
-        .image-container {
-            margin-bottom: 0.5rem;
+    .button {
+        background: none;
+        border-radius: 0;
+    }
 
-            img {
-                border-radius: 0.25rem
-            }
-        }
-
-        .button {
-            background: none;
-            border-radius: 0;
-            border: 2px solid #fc5c7d;
-            border-image: $global-gradient;
-            border-image-slice: 1;
+    .gradient-button {
+        &:first-child {
             margin-right: 0.5rem;
-            transition: transform .2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.1);
-            }
         }
 
-        .gradient-button {
-            &:first-child {
-                margin-right: 0.5rem;
-            }
-
-            i {
-                font-size: 1.5rem;
-            }
+        i {
+            font-size: 1.5rem;
         }
     }
 }
 
-.card-container-3 {
-    height: 250vh;
+#experience {
+    padding: 1.5rem;
 
-    .sub-card-container-3 {
-        background-color: map-get($foundation-palette, "secondary");
-        padding: 1.5rem;
+    .sdt-container {
+        text-align: center;
 
-        .sdt-container {
+        h2, h3 {
+            font-weight: normal;
+        }
+
+        img {
+            margin: 1rem;
+            max-height: 4rem;
+        }
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+    .progress-container {
+        text-align: center;
+
+        i {
+            display: inline-block;
+            font-size: 1.5rem;
+            width: 2.2rem;
+            margin: 0.4rem;
             text-align: center;
 
-            h2, h3 {
-                font-weight: normal;
-            }
-
-            img {
-                margin: 1rem;
-                max-height: 4rem;
-            }
-
-            i {
-                font-size: 0.8rem;
+            @include breakpoint(medium) {
+                display: block;
             }
         }
 
-        .progress-container {
-            .text-container {
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-    
-            i {
-                font-size: 2rem;
-                width: 2.2rem;
-                margin: 0 1rem 1rem 0;
-            }
-    
-            .progress {
-                width: 75%;
-            }
+        .progress {
+            width: 75%;
+        }
+
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

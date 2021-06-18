@@ -8,46 +8,54 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <div class="main-container">
-      <div class="verticle-menu" data-magellan data-offset="-30" data-active-class="is-active">
-        <ul>
-          <li><a href="#home-card">Home</a></li>
-          <li><a href="#portfolio-card">Projects</a></li>
-          <li><a href="#experience-card">Experience</a></li>
+    <div class="grid-container main-wrapper">
+      <ul class="vertical tabs" data-tabs id="tabs">
+        <li class="tabs-title is-active"><a href="#home" aria-selected="true">Home</a></li>
+        <li class="tabs-title"><a href="#projects">Projects</a></li>
+        <li class="tabs-title"><a href="#experience">Experience</a></li>
+      </ul>
+      
+      <button data-toggle="offCanvas" id="mobile-menu-btn"><i class="fas fa-bars"></i> Menu</button>
+
+      <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <ul class="vertical menu mobile-menu" data-tabs id="tabs">
+          <li class="tabs-title is-active"><a href="#home" aria-selected="true">Home</a></li>
+          <li class="tabs-title"><a href="#projects">Projects</a></li>
+          <li class="tabs-title"><a href="#experience">Experience</a></li>
         </ul>
       </div>
 
-      <div id="home-card" data-magellan-target="home-card" class="card-container">
-        <div class="grid-container">
-          <div class="grid-x">
-            <div class="cell sub-card-container sub-card" data-smooth-scroll>
-              <img id="profile-picture" src="assets/profilepicture.png" alt="Profile Picture">
-              <h1>Jack Kelly</h1>
-              <h2><i class="fa fa-code"></i> Software Developer Technician Apprentice<br><i class="fas fa-location-arrow"></i> Bromley, Greater London</h2>
+      <div class="main-container off-canvas-content" data-off-canvas-content>
 
-              <div class="icon-container">
-                <a class="gradient-button hover" href="mailto:mail@jackkelly.dev" target="_blank" aria-label="Mail">
-                  <i class="fas fa-envelope"></i>
-                </a>
+        <div class="tabs-content vertical" data-tabs-content="tabs">
 
-                <a class="gradient-button hover" href="https://www.linkedin.com/in/jack-kelly-959224170/" target="_blank" aria-label="Linked In">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
+          <div class="tabs-panel is-active" id="home">
+            <img id="profile-picture" src="assets/JK.jpg" alt="Profile Picture">
+            <h1>Jack Kelly</h1>
+            <h2><i class="fa fa-code"></i> Software Developer Technician Apprentice<br><i class="fas fa-location-arrow"></i> Bromley, Greater London</h2>
 
-                <a class="gradient-button hover" href="https://github.com/JackKellyUK" target="_blank" aria-label="Github">
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
+            <div class="icon-container">
+              <a class="icon-button" href="mailto:mail@jackkelly.dev" target="_blank" aria-label="Mail">
+                <i class="fas fa-envelope"></i>
+              </a>
+
+              <a class="icon-button" href="https://www.linkedin.com/in/jack-kelly-959224170/" target="_blank" aria-label="Linked In">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+              <a class="icon-button" href="https://github.com/JackKellyUK" target="_blank" aria-label="Github">
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div id="portfolio-card" data-magellan-target="portfolio-card" class="card-container-2">
-        <div class="grid-container">
-          <h1>Projects</h1>
+          <div class="tabs-panel" id="projects">
+            <h1>Projects</h1>
 
-          <div class="sub-card-container-2 sub-card">
             <div class="grid-x grid-margin-x section-container">
               <div class="cell small-12 medium-5">
                 <div class="image-container">
@@ -57,8 +65,8 @@
               <div class="cell small-12 medium-7">
                 <h2><i class="fas fa-popcorn"></i> Movie Database</h2>
                 <p>An Object Orianted Programming approach to use the OMDb REST API</p>
-                <a class="button" aria-label="Code" href="https://github.com/JackKellyUK/OMDb-Movie-Database/" target="_blank">View Code</a>
-                <a class="button" aria-label="View" href="/projects/omdb" target="_blank">View Project</a>
+                <a class="button hollow c-white" aria-label="Code" href="https://github.com/JackKellyUK/OMDb-Movie-Database/" target="_blank">View Code</a>
+                <a class="button hollow c-white" aria-label="View" href="/projects/omdb" target="_blank">View Project</a>
               </div>
             </div>
 
@@ -71,8 +79,8 @@
               <div class="cell small-12 medium-7">
                 <h2><i class="fas fa-list-ul"></i> Todo List</h2>
                 <p>An Object Orianted Programming approach to a barebone todo list</p>
-                <a class="button" aria-label="Code" href="https://github.com/JackKellyUK/Todo/" target="_blank">View Code</a>
-                <a class="button" aria-label="View" href="/projects/todo" target="_blank">View Project</a>
+                <a class="button hollow c-white" aria-label="Code" href="https://github.com/JackKellyUK/Todo/" target="_blank">View Code</a>
+                <a class="button hollow c-white" aria-label="View" href="/projects/todo" target="_blank">View Project</a>
               </div>
             </div>
 
@@ -85,99 +93,48 @@
               <div class="cell small-12 medium-7">
                 <h2><i class="fas fa-dice"></i> Blackjack</h2>
                 <p>An Object Orianted Programming approach to the card game blackjack</p>
-                <a class="button" aria-label="Code" href="https://github.com/JackKellyUK/Blackjack-web/" target="_blank">View Code</a>
-                <a class="button" aria-label="View" href="/projects/blackjack" target="_blank">View Project</a>
+                <a class="button hollow c-white" aria-label="Code" href="https://github.com/JackKellyUK/Blackjack-web/" target="_blank">View Code</a>
+                <a class="button hollow c-white" aria-label="View" href="/projects/blackjack" target="_blank">View Project</a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div id="experience-card" data-magellan-target="experience-card" class="card-container-3">
-        <div class="grid-container">
-          <h1>Experience</h1>
-
-          <div class="sub-card-container-3 sub-card">
-            <div class="grid-x grid-margin-x">
-              <div class="cell medium-7 sdt-container">
-                <div>
-                  <img src="assets/qlue.png" alt="Qlue Logo">
-                  <h2>Software Development Technician Apprentice</h2>
-                  <h3><i class="fas fa-calendar-week"></i> August 2020 - Present</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tincidunt mauris. Sed nec est non metus laoreet lobortis vel id mi.</p>
-                </div>
-                <div>
-                  <img src="assets/waitrose.png" alt="Waitrose Logo">
-                  <h2>Customer Service Assistant</h2>
-                  <h3><i class="fas fa-calendar-week"></i> March 2019 - Present</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tincidunt mauris. Sed nec est non metus laoreet lobortis vel id mi.</p>
-                </div>
-              </div>
-
-              <div class="cell medium-5 progress-container">
-                <h2>Code Management</h2>
-
-                <div class="text-container">
-                  <i class="fab fa-github"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:80%;"></div>
+          <div class="tabs-panel" id="experience">
+            <div class="grid-container">
+              <h1>Experience</h1>
+    
+              <div class="sub-card-container-3 sub-card">
+                <div class="grid-x grid-margin-x">
+                  <div class="cell medium-10 sdt-container">
+                    <div>
+                      <img src="assets/qlue.png" alt="Qlue Logo">
+                      <h2>Software Development Technician Apprentice</h2>
+                      <h3><i class="fas fa-calendar-week"></i> August 2020 - Present</h3>
+                      <p>Rapid deployment of bespoke Joomla! templates integrating with Management Information Systems and day-to-day client support using accessibility and SEO best practices</p>
+                    </div>
+                    <div>
+                      <img src="assets/waitrose.png" alt="Waitrose Logo">
+                      <h2>Customer Service Assistant</h2>
+                      <h3><i class="fas fa-calendar-week"></i> March 2019 - Present</h3>
+                      <p>Providing quality customer care and assisting with stock management</p>
+                    </div>
                   </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-bitbucket"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:65%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-trello"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:90%;"></div>
-                  </div>
-                </div>
-
-                <h2>Languages</h2>
-                <div class="text-container">
-                  <i class="fab fa-html5"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:75%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-css3-alt"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:65%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-sass"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:60%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-python"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:45%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-php"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:10%;"></div>
-                  </div>
-                </div>
-
-                <div class="text-container">
-                  <i class="fab fa-js"></i>
-                  <div class="dark progress">
-                    <div class="dark progress-meter" style="width:5%;"></div>
+    
+                  <div class="cell medium-2 progress-container">
+    
+                      <i class="fab fa-github"></i>
+                      <i class="fab fa-bitbucket"></i>
+                      <i class="fab fa-sourcetree"></i>
+                      <i class="fab fa-trello"></i>
+                      <i class="fab fa-cpanel"></i>
+                      <i class="fab fa-npm"></i>
+                      <i class="fab fa-html5"></i>
+                      <i class="fab fa-css3-alt"></i>
+                      <i class="fab fa-sass"></i>
+                      <i class="fab fa-python"></i>
+                      <i class="fab fa-php"></i>
+                      <i class="fab fa-js"></i>
+    
                   </div>
                 </div>
               </div>
